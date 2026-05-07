@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="bn">
-  head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -17,102 +17,295 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favico.svg" />
-    <!-- Title -->
-    <!-- Primary Meta Tags -->
-    <title>Sojib Das | Singer, Musician & Songwriter</title>
-    <meta name="title" content="Sojib Das | Singer, Musician & Songwriter" />
+
+    <title>Sojib Das | Songs & Music Videos - Official</title>
     <meta
       name="description"
-      content="Official website of Sojib Das – singer, musician, and songwriter. Explore latest songs, albums, music videos, live performances, and updates."
+      content="Official music videos and songs of Sojib Das - Bangladeshi singer, composer, and music director"
     />
     <meta
       name="keywords"
-      content="Sojib Das, singer, musician, songwriter, Bangladeshi artist, music, songs, albums, live shows"
+      content="Sojib Das songs, music videos, Bangladeshi singer, playback songs"
     />
     <meta name="author" content="Sojib Das" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sojibdas.com/" />
-    <meta
-      property="og:title"
-      content="Sojib Das | Singer, Musician & Songwriter"
-    />
+    <meta property="og:url" content="https://sojibdas.com/works.html" />
+    <meta property="og:title" content="Sojib Das | Songs & Music Videos" />
     <meta
       property="og:description"
-      content="Discover the music of Sojib Das – singer, musician, and songwriter. Listen to latest releases and stay updated."
+      content="Watch official music videos of Sojib Das"
     />
-    <meta
-      property="og:image"
-      content="/assets/images/profile/3.jpg"
-    />
+    <meta property="og:image" content="/assets/images/profile/3.jpg" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://sojibdas.com/" />
-    <meta
-      property="twitter:title"
-      content="Sojib Das | Singer, Musician & Songwriter"
-    />
-    <meta
-      property="twitter:description"
-      content="Official website of Sojib Das. Listen to songs, watch videos, and explore music journey."
-    />
-    <meta
-      property="twitter:image"
-      content="/assets/images/profile/3.jpg"
-    />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://sojibdas.com/" />
-
-    <!-- Theme Color (optional) -->
+    <link rel="canonical" href="https://sojibdas.com/works.html" />
     <meta name="theme-color" content="#000000" />
 
-    <!-- Structured Data (JSON-LD for Google) -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "MusicArtist",
-        "name": "Sojib Das",
-        "url": "https://sojibdas.com/",
-        "image": "/assets/images/profile/3.jpg",
-        "description": "Singer, musician, and songwriter from Bangladesh.",
-        "genre": ["Pop", "Rock", "Indie"],
-        "sameAs": [
-          "https://www.facebook.com/sojibofficialfbac/",
-          "https://instagram.com/sojibdasofficial/",
-          "https://youtube.com/sojibdasofficial/",
-          "https://spotify.com/artist/sojibdas"
-        ]
+    <style>
+      /* Page Banner Dark */
+      .page-banner-area {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
       }
-    </script>
+      .page-banner-content h2 {
+        color: #fff;
+      }
+      /* Section Title Dark */
+      .section-title-custom {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .section-title-custom .subtitle {
+        color: #e30613;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+      .section-title-custom h2 {
+        font-size: 42px;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 15px;
+      }
+      .section-title-custom h2 span {
+        color: #e30613;
+      }
+      .section-title-custom p {
+        color: #aaa;
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 16px;
+      }
+      /* Dark Song Card - YouTube Style */
+      .song-card {
+        background: #111111;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+        cursor: pointer;
+        border: 1px solid #222;
+      }
+      .song-card:hover {
+        transform: translateY(-8px);
+        border-color: #e30613;
+        box-shadow: 0 20px 40px rgba(227, 6, 19, 0.15);
+      }
+      .song-img-wrapper {
+        position: relative;
+        overflow: hidden;
+      }
+      .song-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+      .song-card:hover .song-img {
+        transform: scale(1.05);
+      }
+      .play-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .song-card:hover .play-overlay {
+        opacity: 1;
+      }
+      .play-btn {
+        width: 60px;
+        height: 60px;
+        background: #e30613;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 20px rgba(227, 6, 19, 0.5);
+      }
+      .play-btn:hover {
+        transform: scale(1.1);
+        background: #ff1a2a;
+      }
+      /* YouTube Badge */
+      .youtube-badge {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 4px;
+        padding: 4px 8px;
+        font-size: 12px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        backdrop-filter: blur(5px);
+      }
+      .youtube-badge i {
+        color: #e30613;
+      }
+      /* Song Content Dark */
+      .song-content {
+        padding: 18px;
+      }
+      .song-category {
+        color: #e30613;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .song-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 8px 0 5px;
+        color: #ffffff;
+      }
+      .song-year {
+        color: #888;
+        font-size: 12px;
+      }
+      /* YouTube Modal */
+      .youtube-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.96);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(10px);
+      }
+      .youtube-modal.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+      .youtube-modal-content {
+        position: relative;
+        width: 85%;
+        max-width: 1000px;
+        animation: zoomIn 0.3s ease;
+      }
+      .youtube-video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+      }
+      .youtube-video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 20px;
+      }
+      .close-modal {
+        position: absolute;
+        top: -50px;
+        right: 0;
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: rgba(0, 0, 0, 0.6);
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .close-modal:hover {
+        transform: rotate(90deg);
+        background: #e30613;
+      }
+      /* View All Button */
+      .btn-youtube {
+        background: #e30613;
+        color: white;
+        padding: 14px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+      }
+      .btn-youtube:hover {
+        background: #ff1a2a;
+        transform: translateY(-3px);
+        color: white;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      @media (max-width: 768px) {
+        .section-title-custom h2 {
+          font-size: 28px;
+        }
+        .youtube-modal-content {
+          width: 95%;
+        }
+        .close-modal {
+          top: -40px;
+          right: 0;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Start Preloader -->
     <div id="preloader">
       <div class="preloader">
         <div class="waviy">
-          <span>S</span>
-          <span>O</span>
-          <span>J</span>
-          <span>I</span>
-          <span>B</span>
-          <span>D</span>
-          <span>A</span>
-          <span>S</span>
+          <span>S</span><span>O</span><span>J</span><span>I</span><span>B</span
+          ><span>D</span><span>A</span><span>S</span>
         </div>
       </div>
     </div>
-    <!-- End Preloader -->
 
     <!-- Start Navbar Area -->
     <nav
@@ -122,9 +315,7 @@
       <div
         class="container mw-1720 d-flex align-items-center justify-content-between"
       >
-        <!-- LEFT SIDE: Logo + Toggler -->
         <div class="d-flex align-items-center gap-3">
-          <!-- Logo -->
           <a class="navbar-brand" href="index.html">
             <img
               src="assets/images/final-logo.png"
@@ -132,14 +323,11 @@
               alt="logo"
             />
           </a>
-
-          <!-- Toggler -->
           <a
             class="navbar-toggler"
             data-bs-toggle="offcanvas"
             href="#navbarOffcanvas"
             role="button"
-            aria-controls="navbarOffcanvas"
           >
             <span class="burger-menu">
               <span class="top-bar"></span>
@@ -148,15 +336,13 @@
             </span>
           </a>
         </div>
-
-        <!-- RIGHT SIDE: Menu -->
         <div
           class="collapse navbar-collapse justify-content-end"
           id="navbarSupportedContent"
         >
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="works.html">Works</a>
@@ -180,8 +366,8 @@
         </div>
       </div>
     </nav>
-    <!-- End Navbar Area -->
-    <!-- Start Mobile Navbar Area -->
+
+    <!-- Start Mobile Navbar -->
     <div
       class="mobile-navbar offcanvas offcanvas-end border-0"
       data-bs-backdrop="static"
@@ -189,642 +375,579 @@
       id="navbarOffcanvas"
     >
       <div class="offcanvas-header">
-        <div class="">
-          <a href="index.html" class="logo d-inline-block">
-            <img src="assets/images/final-logo.png" alt="logo" />
-          </a>
-          <a href="index.html" class="logo d-none">
-            <img src="assets/images/final-logo.png" alt="logo" />
-          </a>
-        </div>
-
+        <a href="index.html" class="logo d-inline-block"
+          ><img src="assets/images/final-logo.png" alt="logo"
+        /></a>
         <button
           type="button"
           class="btn-close opacity-1"
           data-bs-dismiss="offcanvas"
-          aria-label="Close"
         >
           <i class="ri-close-fill"></i>
         </button>
       </div>
-
       <div class="offcanvas-body">
         <ul class="mobile-menu">
-          <li class="mobile-menu-list without-icon">
-            <a href="index.html" class="nav-link"> Home </a>
-          </li>
-          <li class="mobile-menu-list without-icon">
-            <a href="works.html" class="nav-link"> Works </a>
-          </li>
-          <li class="mobile-menu-list without-icon">
-            <a href="awards.html" class="nav-link"> Awards </a>
-          </li>
-          <li class="mobile-menu-list without-icon">
-            <a href="about.html" class="nav-link"> About </a>
-          </li>
-          <li class="mobile-menu-list without-icon">
-            <a href="gallery.html" class="nav-link"> Gallery </a>
-          </li>
-          <li class="mobile-menu-list without-icon">
-            <a href="newsroom.html" class="nav-link"> Newsroom </a>
-          </li>
-          <li class="mobile-menu-list without-icon">
-            <a href="contact.html" class="nav-link"> Contact </a>
-          </li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="works.html">Works</a></li>
+          <li><a href="awards.html">Awards</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="newsroom.html">Newsroom</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
-    <!-- End Mobile Navbar Area -->
 
-    <!-- Start Search Area -->
-    <div
-      class="offcanvas offcanvas-top search-form"
-      tabindex="-1"
-      id="offcanvasTop"
-      aria-labelledby="offcanvasTopLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasTopLabel">Sojib.</h5>
-        <button
-          type="button"
-          class="btn-close opacity-1 fs-24"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        >
-          <i class="ri-close-line text-white"></i>
-        </button>
-      </div>
-      <div class="offcanvas-body">
-        <form class="position-relative search-form-wrap">
-          <input
-            type="text"
-            class="form-control px-0"
-            placeholder="Type your words to seach"
-          />
-          <button class="bg-transparent p-0 border-0">
-            <i class="ri-search-line fs-24"></i>
-          </button>
-        </form>
-      </div>
-    </div>
-    <!-- End Search Area -->
-
-    <!-- Start Page Banner Area -->
+    <!-- Start Page Banner -->
     <div class="page-banner-area position-relative z-1">
       <div class="container">
         <div class="page-banner-content">
-          <h2>OUR PODCAST</h2>
+          <h2>OFFICIAL MUSIC VIDEOS</h2>
           <img
             src="assets/images/page-banner-shape.png"
             class="page-banner-shape shape"
-            alt="page-banner-shape"
+            alt="shape"
           />
         </div>
       </div>
     </div>
-    <!-- End Page Banner Area -->
 
-    <!-- Start Podcasts And More Area -->
+    <!-- Start Songs Section -->
     <div class="podcasts-and-more-area pb-120 position-relative z-1">
       <div class="container">
-        <div class="row">
+        <div class="section-title-custom pt-5">
+          <span class="subtitle">Watch & Listen</span>
+          <h2>Popular <span>Songs</span> by Sojib Das</h2>
+          <p>
+            Experience the soulful melodies and heart-touching songs from
+            Bangladeshi singer Sojib Das
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Song 1 - Jodi Monta Churi Kori -->
           <div class="col-lg-4 col-md-6">
-            <div class="podcasts-and-more-single-item mb-4">
-              <div class="podcasts-and-more-img pt-0">
-                <a
-                  href="podcast-details.html"
-                  class="text-decoration-none d-block"
-                >
-                  <img
-                    src="assets/images/podcasts-and-more-1.jpg"
-                    alt="podcasts-and-more"
-                  />
-                </a>
-
-                <button
-                  class="p-0 border-0 rounded-circle bg-primary position-absolute top-100 translate-middle podcasts-play"
-                  style="width: 52px; height: 52px; line-height: 29px"
-                >
-                  <audio class="track">
-                    <source
-                      src="https://cldup.com/qR72ozoaiQ.mp3"
-                      type="audio/mpeg"
-                    />
-                  </audio>
-                  <span class="player-container style-two">
-                    <!-- 'style-two' this class name for style two -->
-                    <span class="play-pause"></span>
-                  </span>
-                </button>
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/jodimontachurikori.jpg"
+                  class="song-img"
+                  alt="Jodi Monta Churi Kori"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
               </div>
-              <div class="podcasts-and-more-content">
-                <span>Oliver Redwood</span>
-                <a href="podcast-details.html" class="text-decoration-none">
-                  <h3>Podcast 101: Melodies From The Heart</h3>
-                </a>
-
-                <a
-                  href="podcast-details.html"
-                  class="read-more text-decoration-none"
-                >
-                  Episode Page
-                  <i class="ri-arrow-right-long-line"></i>
-                </a>
+              <div class="song-content">
+                <span class="song-category">Playback Song</span>
+                <h3 class="song-title">Jodi Monta Churi Kori</h3>
+                <span class="song-year">2023 • Laser Vision</span>
               </div>
             </div>
           </div>
+
+          <!-- Song 2 - Ore Mon -->
           <div class="col-lg-4 col-md-6">
-            <div class="podcasts-and-more-single-item mb-4">
-              <div class="podcasts-and-more-img pt-0">
-                <a
-                  href="podcast-details.html"
-                  class="text-decoration-none d-block"
-                >
-                  <img
-                    src="assets/images/podcasts-and-more-2.jpg"
-                    alt="podcasts-and-more"
-                  />
-                </a>
-
-                <button
-                  class="p-0 border-0 rounded-circle bg-primary position-absolute top-100 translate-middle podcasts-play"
-                  style="width: 52px; height: 52px; line-height: 29px"
-                >
-                  <audio class="track">
-                    <source
-                      src="https://cldup.com/qR72ozoaiQ.mp3"
-                      type="audio/mpeg"
-                    />
-                  </audio>
-                  <span class="player-container style-two">
-                    <!-- 'style-two' this class name for style two -->
-                    <span class="play-pause"></span>
-                  </span>
-                </button>
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/dohon-ore-mon.jpg"
+                  class="song-img"
+                  alt="Ore Mon"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
               </div>
-              <div class="podcasts-and-more-content">
-                <span>Oliver Redwood</span>
-                <a href="podcast-details.html" class="text-decoration-none">
-                  <h3>Podcast 102: Rising From The Ashes</h3>
-                </a>
-
-                <a
-                  href="podcast-details.html"
-                  class="read-more text-decoration-none"
-                >
-                  Episode Page
-                  <i class="ri-arrow-right-long-line"></i>
-                </a>
+              <div class="song-content">
+                <span class="song-category">Hit Single</span>
+                <h3 class="song-title">Ore Mon</h3>
+                <span class="song-year">2023 • Laser Vision</span>
               </div>
             </div>
           </div>
+
+          <!-- Song 3 - Ekta Moner Manush -->
           <div class="col-lg-4 col-md-6">
-            <div class="podcasts-and-more-single-item mb-4">
-              <div class="podcasts-and-more-img pt-0">
-                <a
-                  href="podcast-details.html"
-                  class="text-decoration-none d-block"
-                >
-                  <img
-                    src="assets/images/podcasts-and-more-3.jpg"
-                    alt="podcasts-and-more"
-                  />
-                </a>
-
-                <button
-                  class="p-0 border-0 rounded-circle bg-primary position-absolute top-100 translate-middle podcasts-play"
-                  style="width: 52px; height: 52px; line-height: 29px"
-                >
-                  <audio class="track">
-                    <source
-                      src="https://cldup.com/qR72ozoaiQ.mp3"
-                      type="audio/mpeg"
-                    />
-                  </audio>
-                  <span class="player-container style-two">
-                    <!-- 'style-two' this class name for style two -->
-                    <span class="play-pause"></span>
-                  </span>
-                </button>
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/moner-manus.jpg"
+                  class="song-img"
+                  alt="Ekta Moner Manush"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
               </div>
-              <div class="podcasts-and-more-content">
-                <span>Oliver Redwood</span>
-                <a href="podcast-details.html" class="text-decoration-none">
-                  <h3>Podcast 103: Tales Of The Whispering Wind</h3>
-                </a>
-
-                <a
-                  href="podcast-details.html"
-                  class="read-more text-decoration-none"
-                >
-                  Episode Page
-                  <i class="ri-arrow-right-long-line"></i>
-                </a>
+              <div class="song-content">
+                <span class="song-category">Romantic</span>
+                <h3 class="song-title">Ekta Moner Manush</h3>
+                <span class="song-year">2024 • Laser Vision</span>
               </div>
             </div>
           </div>
+
+          <!-- Song 4 - Tomar Mayay -->
           <div class="col-lg-4 col-md-6">
-            <div class="podcasts-and-more-single-item mb-4">
-              <div class="podcasts-and-more-img pt-0">
-                <a
-                  href="podcast-details.html"
-                  class="text-decoration-none d-block"
-                >
-                  <img
-                    src="assets/images/podcasts-and-more-4.jpg"
-                    alt="podcasts-and-more"
-                  />
-                </a>
-
-                <button
-                  class="p-0 border-0 rounded-circle bg-primary position-absolute top-100 translate-middle podcasts-play"
-                  style="width: 52px; height: 52px; line-height: 29px"
-                >
-                  <audio class="track">
-                    <source
-                      src="https://cldup.com/qR72ozoaiQ.mp3"
-                      type="audio/mpeg"
-                    />
-                  </audio>
-                  <span class="player-container style-two">
-                    <!-- 'style-two' this class name for style two -->
-                    <span class="play-pause"></span>
-                  </span>
-                </button>
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/tomar-maya.jpg"
+                  class="song-img"
+                  alt="Tomar Mayay"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
               </div>
-              <div class="podcasts-and-more-content">
-                <span>Liam Martinez</span>
-                <a href="podcast-details.html" class="text-decoration-none">
-                  <h3>Podcast 104: Music Mavericks and Their Journeys</h3>
-                </a>
-
-                <a
-                  href="podcast-details.html"
-                  class="read-more text-decoration-none"
-                >
-                  Episode Page
-                  <i class="ri-arrow-right-long-line"></i>
-                </a>
+              <div class="song-content">
+                <span class="song-category">Viral Hit</span>
+                <h3 class="song-title">Tomar Mayay</h3>
+                <span class="song-year">2024 • Laser Vision</span>
               </div>
             </div>
           </div>
+
+          <!-- Song 5 - Tomare Chaigo -->
           <div class="col-lg-4 col-md-6">
-            <div class="podcasts-and-more-single-item mb-4">
-              <div class="podcasts-and-more-img pt-0">
-                <a
-                  href="podcast-details.html"
-                  class="text-decoration-none d-block"
-                >
-                  <img
-                    src="assets/images/podcasts-and-more-5.jpg"
-                    alt="podcasts-and-more"
-                  />
-                </a>
-
-                <button
-                  class="p-0 border-0 rounded-circle bg-primary position-absolute top-100 translate-middle podcasts-play"
-                  style="width: 52px; height: 52px; line-height: 29px"
-                >
-                  <audio class="track">
-                    <source
-                      src="https://cldup.com/qR72ozoaiQ.mp3"
-                      type="audio/mpeg"
-                    />
-                  </audio>
-                  <span class="player-container style-two">
-                    <!-- 'style-two' this class name for style two -->
-                    <span class="play-pause"></span>
-                  </span>
-                </button>
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/tomarechaigo.jpg"
+                  class="song-img"
+                  alt="Tomare Chaigo"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
               </div>
-              <div class="podcasts-and-more-content">
-                <span>Ethan Collins</span>
-                <a href="podcast-details.html" class="text-decoration-none">
-                  <h3>Podcast 105: Riding the Wave of Underground Music</h3>
-                </a>
-
-                <a
-                  href="podcast-details.html"
-                  class="read-more text-decoration-none"
-                >
-                  Episode Page
-                  <i class="ri-arrow-right-long-line"></i>
-                </a>
+              <div class="song-content">
+                <span class="song-category">Emotional Ballad</span>
+                <h3 class="song-title">Tomare Chaigo</h3>
+                <span class="song-year">2024 • Laser Vision</span>
               </div>
             </div>
           </div>
+
+          <!-- Song 6 - Jodi Tumi Ure Jao -->
           <div class="col-lg-4 col-md-6">
-            <div class="podcasts-and-more-single-item mb-4">
-              <div class="podcasts-and-more-img pt-0">
-                <a
-                  href="podcast-details.html"
-                  class="text-decoration-none d-block"
-                >
-                  <img
-                    src="assets/images/podcasts-and-more-6.jpg"
-                    alt="podcasts-and-more"
-                  />
-                </a>
-
-                <button
-                  class="p-0 border-0 rounded-circle bg-primary position-absolute top-100 translate-middle podcasts-play"
-                  style="width: 52px; height: 52px; line-height: 29px"
-                >
-                  <audio class="track">
-                    <source
-                      src="https://cldup.com/qR72ozoaiQ.mp3"
-                      type="audio/mpeg"
-                    />
-                  </audio>
-                  <span class="player-container style-two">
-                    <!-- 'style-two' this class name for style two -->
-                    <span class="play-pause"></span>
-                  </span>
-                </button>
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/jodi-tumi-ure-jao.jpg"
+                  class="song-img"
+                  alt="Jodi Tumi Ure Jao"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
               </div>
-              <div class="podcasts-and-more-content">
-                <span>Mia Mitchell</span>
-                <a href="podcast-details.html" class="text-decoration-none">
-                  <h3>Podcast 106: The Best Music Lurks Below the Radar</h3>
-                </a>
-
-                <a
-                  href="podcast-details.html"
-                  class="read-more text-decoration-none"
-                >
-                  Episode Page
-                  <i class="ri-arrow-right-long-line"></i>
-                </a>
+              <div class="song-content">
+                <span class="song-category">Romantic</span>
+                <h3 class="song-title">Jodi Tumi Ure Jao</h3>
+                <span class="song-year">2026 • Laser Vision</span>
               </div>
             </div>
           </div>
+
+          <!-- Song 7 - Shopno Rajje -->
           <div class="col-lg-4 col-md-6">
-            <div class="podcasts-and-more-single-item mb-4">
-              <div class="podcasts-and-more-img pt-0">
-                <a
-                  href="podcast-details.html"
-                  class="text-decoration-none d-block"
-                >
-                  <img
-                    src="assets/images/podcasts-and-more-7.jpg"
-                    alt="podcasts-and-more"
-                  />
-                </a>
-
-                <button
-                  class="p-0 border-0 rounded-circle bg-primary position-absolute top-100 translate-middle podcasts-play"
-                  style="width: 52px; height: 52px; line-height: 29px"
-                >
-                  <audio class="track">
-                    <source
-                      src="https://cldup.com/qR72ozoaiQ.mp3"
-                      type="audio/mpeg"
-                    />
-                  </audio>
-                  <span class="player-container style-two">
-                    <!-- 'style-two' this class name for style two -->
-                    <span class="play-pause"></span>
-                  </span>
-                </button>
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/sopno.jpg"
+                  class="song-img"
+                  alt="Shopno Rajje"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
               </div>
-              <div class="podcasts-and-more-content">
-                <span>Amelia Bennett</span>
-                <a href="podcast-details.html" class="text-decoration-none">
-                  <h3>
-                    Podcast 107: Hunting for the Best in Underground Music
-                  </h3>
-                </a>
-
-                <a
-                  href="podcast-details.html"
-                  class="read-more text-decoration-none"
-                >
-                  Episode Page
-                  <i class="ri-arrow-right-long-line"></i>
-                </a>
+              <div class="song-content">
+                <span class="song-category">Dreamy Melody</span>
+                <h3 class="song-title">Shopno Rajje</h3>
+                <span class="song-year">2023 • Laser Vision</span>
               </div>
             </div>
           </div>
+
+          <!-- Song 8 - Firte Chai -->
           <div class="col-lg-4 col-md-6">
-            <div class="podcasts-and-more-single-item mb-4">
-              <div class="podcasts-and-more-img pt-0">
-                <a
-                  href="podcast-details.html"
-                  class="text-decoration-none d-block"
-                >
-                  <img
-                    src="assets/images/podcasts-and-more-8.jpg"
-                    alt="podcasts-and-more"
-                  />
-                </a>
-
-                <button
-                  class="p-0 border-0 rounded-circle bg-primary position-absolute top-100 translate-middle podcasts-play"
-                  style="width: 52px; height: 52px; line-height: 29px"
-                >
-                  <audio class="track">
-                    <source
-                      src="https://cldup.com/qR72ozoaiQ.mp3"
-                      type="audio/mpeg"
-                    />
-                  </audio>
-                  <span class="player-container style-two">
-                    <!-- 'style-two' this class name for style two -->
-                    <span class="play-pause"></span>
-                  </span>
-                </button>
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/firtechai.jpg"
+                  class="song-img"
+                  alt="Firte Chai"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
               </div>
-              <div class="podcasts-and-more-content">
-                <span>Jackson Harrison</span>
-                <a href="podcast-details.html" class="text-decoration-none">
-                  <h3>Podcast 108: Exploring Uncharted Music Realms</h3>
-                </a>
-
-                <a
-                  href="podcast-details.html"
-                  class="read-more text-decoration-none"
-                >
-                  Episode Page
-                  <i class="ri-arrow-right-long-line"></i>
-                </a>
+              <div class="song-content">
+                <span class="song-category">Wanderlust</span>
+                <h3 class="song-title">Firte Chai</h3>
+                <span class="song-year">2024 • Laser Vision</span>
               </div>
             </div>
           </div>
+
+          <!-- Song 9 - Main Adhura -->
           <div class="col-lg-4 col-md-6">
-            <div class="podcasts-and-more-single-item mb-4">
-              <div class="podcasts-and-more-img pt-0">
-                <a
-                  href="podcast-details.html"
-                  class="text-decoration-none d-block"
-                >
-                  <img
-                    src="assets/images/podcasts-and-more-9.jpg"
-                    alt="podcasts-and-more"
-                  />
-                </a>
-
-                <button
-                  class="p-0 border-0 rounded-circle bg-primary position-absolute top-100 translate-middle podcasts-play"
-                  style="width: 52px; height: 52px; line-height: 29px"
-                >
-                  <audio class="track">
-                    <source
-                      src="https://cldup.com/qR72ozoaiQ.mp3"
-                      type="audio/mpeg"
-                    />
-                  </audio>
-                  <span class="player-container style-two">
-                    <!-- 'style-two' this class name for style two -->
-                    <span class="play-pause"></span>
-                  </span>
-                </button>
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/main-adhura.jpg"
+                  class="song-img"
+                  alt="Main Adhura"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
               </div>
-              <div class="podcasts-and-more-content">
-                <span>Sophia Parker</span>
-                <a href="podcast-details.html" class="text-decoration-none">
-                  <h3>Podcast 109: A Podcast for Music Rebels</h3>
-                </a>
-
-                <a
-                  href="podcast-details.html"
-                  class="read-more text-decoration-none"
-                >
-                  Episode Page
-                  <i class="ri-arrow-right-long-line"></i>
-                </a>
+              <div class="song-content">
+                <span class="song-category">Eid Special 2024</span>
+                <h3 class="song-title">Main Adhura</h3>
+                <span class="song-year">2026 • Laser Vision</span>
               </div>
             </div>
           </div>
-          <div class="col-lg-12">
-            <ul
-              class="p-0 m-0 list-unstyled pagination d-flex align-items-center justify-content-center"
-            >
-              <li>
-                <a href="podcast.html">
-                  <i class="ri-arrow-left-s-line"></i>
-                </a>
-              </li>
-              <li><span>1/14</span></li>
-              <li>
-                <a href="podcast.html" class="active">
-                  <i class="ri-arrow-right-s-line"></i>
-                </a>
-              </li>
-            </ul>
+
+          <!-- Song 10 - Tui Sudhu Amar -->
+          <div class="col-lg-4 col-md-6">
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/tui-sudhu-amar.jpg"
+                  class="song-img"
+                  alt="Tui Sudhu Amar"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
+              </div>
+              <div class="song-content">
+                <span class="song-category">Love Song</span>
+                <h3 class="song-title">Tui Sudhu Amar</h3>
+                <span class="song-year">2024 • Laser Vision</span>
+              </div>
+            </div>
           </div>
+
+          <!-- Song 11 - Goto Rate -->
+          <div class="col-lg-4 col-md-6">
+            <div class="song-card" data-video="sXethgqFDYo">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/goto-rate.jpg"
+                  class="song-img"
+                  alt="Goto Rate"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
+              </div>
+              <div class="song-content">
+                <span class="song-category">Love Song</span>
+                <h3 class="song-title">Goto Rate</h3>
+                <span class="song-year">2020 • Laser Vision</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Song 12 - Vul Sobi Vul -->
+          <div class="col-lg-4 col-md-6">
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/vul-sobi-vul.jpg"
+                  class="song-img"
+                  alt="Vul Sobi Vul"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
+              </div>
+              <div class="song-content">
+                <span class="song-category">Love Song</span>
+                <h3 class="song-title">Vul Sobi Vul</h3>
+                <span class="song-year">2019 • Laser Vision</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Song 13 - Chadchayaste -->
+          <div class="col-lg-4 col-md-6">
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/chadchayaste.jpg"
+                  class="song-img"
+                  alt="Chadchayaste"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
+              </div>
+              <div class="song-content">
+                <span class="song-category">Love Song</span>
+                <h3 class="song-title">Chadchayaste</h3>
+                <span class="song-year">2020 • Laser Vision</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Song 14 - Jora Kobutor Kosom -->
+          <div class="col-lg-4 col-md-6">
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/Jora Kobutor  Kosom  Full Song  Sojib Das.jpg"
+                  class="song-img"
+                  alt="Jora Kobutor Kosom"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
+              </div>
+              <div class="song-content">
+                <span class="song-category">Love Song</span>
+                <h3 class="song-title">Jora Kobutor Kosom</h3>
+                <span class="song-year">2020 • Laser Vision</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Song 15 - Shudhu Tomake Chai -->
+          <div class="col-lg-4 col-md-6">
+            <div class="song-card" data-video="dQw4w9WgXcQ">
+              <div class="song-img-wrapper">
+                <img
+                  src="assets/images/thumbnail/Shudhu Tomake Chai OST  Bhalobashai Adore I Sajib Das.jpg"
+                  class="song-img"
+                  alt="Shudhu Tomake Chai"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg'
+                  "
+                />
+                <div class="play-overlay">
+                  <div class="play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="youtube-badge">
+                  <i class="fab fa-youtube"></i> YouTube
+                </div>
+              </div>
+              <div class="song-content">
+                <span class="song-category">Love Song</span>
+                <h3 class="song-title">Shudhu Tomake Chai</h3>
+                <span class="song-year">2020 • Laser Vision</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- YouTube Channel Button -->
+        <div class="text-center mt-5">
+          <a
+            href="https://www.youtube.com/@sojibdasofficial"
+            target="_blank"
+            class="btn-youtube"
+          >
+            <i class="fab fa-youtube fa-lg"></i>
+            <span>Subscribe on YouTube</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </div>
     </div>
-    <!-- End Podcasts And More Area -->
 
-    <!-- Start Partner Area -->
+    <!-- YouTube Modal -->
+    <div id="youtubeModal" class="youtube-modal">
+      <div class="youtube-modal-content">
+        <div class="close-modal">&times;</div>
+        <div class="youtube-video-container">
+          <iframe
+            id="youtubeIframe"
+            src=""
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay; encrypted-media"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partner Area -->
     <div
       class="partner-area bg-primary"
-      style="padding-top: 70px; padding-bottom: 45px"
+      style="
+        padding-top: 70px;
+        padding-bottom: 45px;
+        background: #eb5939 !important;
+      "
     >
       <div class="container">
         <div class="partner-title text-center mb-4 pb-lg-2">
-          <h4 class="fs-16">
-            <span class="text-secondary">Trusted Partner:</span> Clandestine
-            Sonic Explorations
+          <h4 class="">
+            <span class="text-secondary">Experience the Sound</span> Connect
+            with me on social media
           </h4>
-        </div>
-        <div class="row justify-content-center align-items-center">
-          <div class="col-md-3 col-sm-6">
-            <div class="mb-4 text-center text-md-start">
-              <img src="assets/images/partner-1.png" alt="partner" />
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="mb-4 text-center text-md-center">
-              <img src="assets/images/partner-2.png" alt="partner" />
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="mb-4 text-center text-md-center">
-              <img src="assets/images/partner-3.png" alt="partner" />
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="mb-4 text-center text-md-end">
-              <img src="assets/images/partner-4.png" alt="partner" />
-            </div>
-          </div>
         </div>
       </div>
     </div>
-    <!-- End Partner Area -->
 
-    <!-- Start Footer Area -->
-    <footer class="footer-area pt-120 pb-95">
+    <!-- Start Footer -->
+    <footer
+      class="footer-area pt-120 pb-95 position-relative z-1 overflow-hidden"
+      style="background: #050505"
+    >
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
-            <div class="footer-widget" style="max-width: 306px">
-              <form class="subscribe-form position-relative">
-                <div class="position-relative">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Enter your email"
-                  />
-                  <i class="ri-mail-line form-icon"></i>
-                  <button
-                    type="submit"
-                    class="bg-transparent p-0 border-0 position-absolute top-50 end-0 translate-middle-y text-primary subscribe-btn"
-                  >
-                    <i class="ri-send-plane-fill fs-20"></i>
-                  </button>
-                </div>
-              </form>
+            <a class="navbar-brand" href="index.html">
+              <img
+                src="assets/images/final-logo.png"
+                class="main-logo"
+                alt="logo"
+              />
+            </a>
+            <div class="footer-widget mt-5" style="max-width: 306px">
               <ul
                 class="p-0 m-0 list-unstyled d-flex align-items-center social-links"
                 style="gap: 15px"
               >
                 <li>
                   <a
-                    href="https://www.facebook.com/"
-                    class="text-decoration-none text-white"
+                    href="https://open.spotify.com/artist/3eHOdhLsZGlpwA2TPcVLn0"
+                    class="text-white"
                     target="_blank"
-                  >
-                    <i class="ri-facebook-fill fs-18"></i>
-                  </a>
+                    ><i class="ri-spotify-fill fs-18"></i
+                  ></a>
                 </li>
                 <li>
                   <a
-                    href="https://www.twitter.com/"
-                    class="text-decoration-none text-white"
+                    href="https://www.youtube.com/@sojibdasofficial"
+                    class="text-white"
                     target="_blank"
-                  >
-                    <i class="ri-twitter-x-line fs-18"></i>
-                  </a>
+                    ><i class="ri-youtube-line fs-18"></i
+                  ></a>
                 </li>
                 <li>
                   <a
-                    href="https://www.instagram.com/"
-                    class="text-decoration-none text-white"
+                    href="https://www.tiktok.com/@sojibtunes"
+                    class="text-white"
                     target="_blank"
-                  >
-                    <i class="ri-instagram-line fs-18"></i>
-                  </a>
+                    ><i class="ri-tiktok-line fs-18"></i
+                  ></a>
                 </li>
                 <li>
                   <a
-                    href="https://www.youtube.com/"
-                    class="text-decoration-none text-white"
+                    href="https://www.facebook.com/sojibofficialfbac/"
+                    class="text-white"
                     target="_blank"
-                  >
-                    <i class="ri-youtube-line fs-18"></i>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/"
-                    class="text-decoration-none text-white"
-                    target="_blank"
-                  >
-                    <i class="ri-linkedin-fill fs-18"></i>
-                  </a>
+                    ><i class="ri-facebook-line fs-18"></i
+                  ></a>
                 </li>
               </ul>
             </div>
@@ -834,78 +957,39 @@
               <div class="col-sm-4">
                 <div class="footer-widget">
                   <h3>Company</h3>
-
                   <ul class="p-0 mb-0 list-unstyled info-links">
-                    <li>
-                      <a href="about.html">About Us</a>
-                    </li>
-                    <li>
-                      <a href="contact.html">Contact Us</a>
-                    </li>
-                    <li>
-                      <a href="playlist.html">Playlist</a>
-                    </li>
+                    <li><a href="about.html">About Us</a></li>
                     <li>
                       <a href="terms-conditions.html">Terms & Conditions</a>
                     </li>
-                    <li>
-                      <a href="privacy-policy.html">Privacy Policy</a>
-                    </li>
-                    <li>
-                      <a href="blog.html">Recent News</a>
-                    </li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="footer-widget">
                   <h3>Genres</h3>
-
                   <ul class="p-0 mb-0 list-unstyled info-links">
-                    <li>
-                      <a href="genres.html">Pop</a>
-                    </li>
-                    <li>
-                      <a href="genres.html">Melody</a>
-                    </li>
-                    <li>
-                      <a href="genres.html">Hip-Hop</a>
-                    </li>
-                    <li>
-                      <a href="genres.html">Classic</a>
-                    </li>
-                    <li>
-                      <a href="genres.html">jazz</a>
-                    </li>
-                    <li>
-                      <a href="genres.html">Classic</a>
-                    </li>
+                    <li><a href="#">Pop</a></li>
+                    <li><a href="#">Melody</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="footer-widget">
                   <h3>Contact Info</h3>
-
                   <ul class="p-0 mb-0 list-unstyled info-links">
                     <li>
-                      <span class="text-white">Address:</span> 45/15 New alsala
-                      Avenew Booston town, Austria
+                      <span class="text-white">Address:</span> Dhaka, Bangladesh
                     </li>
                     <li>
                       <span class="text-white">Email:</span>
-                      <a
-                        href="/cdn-cgi/l/email-protection"
-                        class="__cf_email__"
-                        data-cfemail="90e3e5e0e0ffe2e4d0f1e3e4e2f1fcbef3fffd"
-                        >[email&#160;protected]</a
-                      >
+                      <a href="mailto:support@sojib.com">support@sojib.com</a>
                     </li>
                     <li>
-                      <span class="text-white">Phone:</span> +(002)
-                      0106-8710-594
+                      <span class="text-white">Phone:</span> +8801766977297
                     </li>
-                    <li><span class="text-white">Fax:</span> +0106-8710-594</li>
                   </ul>
                 </div>
               </div>
@@ -913,44 +997,100 @@
           </div>
         </div>
       </div>
+      <img
+        src="assets/images/shape-10.png"
+        class="position-absolute shape z-n1"
+        style="top: -207px; right: 20px"
+        alt="shape"
+      />
     </footer>
-    <!-- End Footer Area -->
 
-    <!-- Start Copyright Area -->
-    <div class="copyright-area">
+    <!-- Copyright -->
+    <div class="copyright-area" style="background: #050505">
       <div class="container">
-        <p
-          class="copyright text-center font-family-heading border-top border-border-color-100"
-        >
-          © <span class="text-primary">Sojib</span>. All Rights Reserved 2026
+        <p class="copyright text-center">
+          ©
+          <span class="text-primary" style="color: #e30613 !important"
+            >Sojib Das</span
+          >. All Rights Reserved 2026
         </p>
       </div>
     </div>
-    <!-- End Copyright Area -->
 
-    <!-- Start Back To Up Area -->
-    <button type="button" id="backtotop">
-      <i class="ri-upload-line"></i>
-    </button>
-    <!-- End Back To Up Area -->
+    <!-- Back to Top -->
+    <button type="button" id="backtotop"><i class="ri-upload-line"></i></button>
 
-    <!-- Start switch Area -->
-    <div class="settings-btn rtl-btn">
-      <label id="switch" class="switch">
-        <input type="checkbox" onchange="toggleTheme()" id="slider" />
-        <span class="slider round"></span>
-      </label>
-    </div>
-    <!-- End switch Area -->
-
-    <!-- Link Of JS File -->
-    <script
-      data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-    ></script>
+    <!-- Scripts -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/scrollCue.min.js"></script>
     <script src="assets/js/custom.js"></script>
+
+    <!-- YouTube Modal JavaScript -->
+    <script>
+      (function () {
+        const songCards = document.querySelectorAll(".song-card");
+        const modal = document.getElementById("youtubeModal");
+        const iframe = document.getElementById("youtubeIframe");
+        const closeBtn = document.querySelector(".close-modal");
+
+        // Map each song card to its YouTube video ID
+        // IMPORTANT: Replace these IDs with the actual YouTube video IDs from Sojib Das's channel
+        // Example: If video URL is https://www.youtube.com/watch?v=abc123DEF, the ID is "abc123DEF"
+        const videoIdMapping = [
+          "mDIYs04MXpk", // Song 1 - Jodi Monta Churi Kori (Replace with real ID)
+          "wVQwvzgg3_Q", // Song 2 - Ore Mon (Replace with real ID)
+          "ZnGGNVfqaUs", // Song 3 - Ekta Moner Manush (Replace with real ID)
+          "MSVvawC2lkw", // Song 4 - Tomar Mayay (Replace with real ID)
+          "JbTWD-eQbI0", // Song 5 - Tomare Chaigo (Replace with real ID)
+          "pKkaro4Ol04", // Song 6 - Jodi Tumi Ure Jao (Replace with real ID)
+          "W-DyqKBjyBA", // Song 7 - Shopno Rajje (Replace with real ID)
+          "nfWPqD5Iop4", // Song 8 - Firte Chai (Replace with real ID)
+          "0HZTProG0UI", // Song 9 - Main Adhura (Replace with real ID)
+          "kOFgrvzunkE", // Song 10 - Tui Sudhu Amar (Replace with real ID)
+          "sXethgqFDYo", // Song 11 - Goto Rate (Replace with real ID)
+          "lYIz7eG4TC4", // Song 12 - Vul Sobi Vul (Replace with real ID)
+          "8XPz8nRW_iE", // Song 13 - Chadchayaste (Replace with real ID)
+          "AWYjBzAKVr4", // Song 14 - Jora Kobutor Kosom (Replace with real ID)
+          "Key6s94", // Song 15 - Shudhu Tomake Chai (Replace with real ID)
+        ];
+
+        // Add click event to each song card
+        songCards.forEach((card, index) => {
+          card.addEventListener("click", function (e) {
+            const videoId = videoIdMapping[index];
+            if (videoId && videoId !== "YOUR_VIDEO_ID_1") {
+              iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0`;
+              modal.classList.add("active");
+              document.body.style.overflow = "hidden";
+            } else {
+              // Open YouTube channel if no specific video ID is set
+              window.open(
+                "https://www.youtube.com/@sojibdasofficial",
+                "_blank",
+              );
+            }
+          });
+        });
+
+        // Close modal function
+        function closeModal() {
+          modal.classList.remove("active");
+          iframe.src = "";
+          document.body.style.overflow = "";
+        }
+
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && modal.classList.contains("active")) {
+            closeModal();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

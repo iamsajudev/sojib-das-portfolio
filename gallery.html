@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="bn">
-head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -17,98 +17,185 @@ head>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favico.svg" />
-    <!-- Title -->
-    <!-- Primary Meta Tags -->
-    <title>Sojib Das | Singer, Musician & Songwriter</title>
-    <meta name="title" content="Sojib Das | Singer, Musician & Songwriter" />
+    <link rel="icon" type="image/png" href="assets/images/profile/favico.svg" />
+
+    <title>Sojib Das | Artists & Gallery</title>
     <meta
       name="description"
-      content="Official website of Sojib Das – singer, musician, and songwriter. Explore latest songs, albums, music videos, live performances, and updates."
+      content="Gallery of Sojib Das - Singer, Musician & Songwriter"
     />
-    <meta
-      name="keywords"
-      content="Sojib Das, singer, musician, songwriter, Bangladeshi artist, music, songs, albums, live shows"
-    />
-    <meta name="author" content="Sojib Das" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sojibdas.com/" />
-    <meta
-      property="og:title"
-      content="Sojib Das | Singer, Musician & Songwriter"
-    />
-    <meta
-      property="og:description"
-      content="Discover the music of Sojib Das – singer, musician, and songwriter. Listen to latest releases and stay updated."
-    />
-    <meta
-      property="og:image"
-      content="https://sojibdas.com/assets/images/sojib-preview.jpg"
-    />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://sojibdas.com/" />
-    <meta
-      property="twitter:title"
-      content="Sojib Das | Singer, Musician & Songwriter"
-    />
-    <meta
-      property="twitter:description"
-      content="Official website of Sojib Das. Listen to songs, watch videos, and explore music journey."
-    />
-    <meta
-      property="twitter:image"
-      content="https://sojibdas.com/assets/images/sojib-preview.jpg"
-    />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://sojibdas.com/" />
-
-    <!-- Theme Color (optional) -->
-    <meta name="theme-color" content="#000000" />
-
-    <!-- Structured Data (JSON-LD for Google) -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "MusicArtist",
-        "name": "Sojib Das",
-        "url": "https://sojibdas.com/",
-        "image": "https://sojibdas.com/assets/images/sojib-preview.jpg",
-        "description": "Singer, musician, and songwriter from Bangladesh.",
-        "genre": ["Pop", "Rock", "Indie"],
-        "sameAs": [
-          "https://facebook.com/yourprofile",
-          "https://instagram.com/yourprofile",
-          "https://youtube.com/yourchannel",
-          "https://spotify.com/artist/yourid"
-        ]
+    <!-- Lightbox CSS -->
+    <style>
+      /* Lightbox Modal Styles */
+      .lightbox-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
-    </script>
+
+      .lightbox-modal.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .lightbox-content {
+        max-width: 85%;
+        max-height: 85%;
+        position: relative;
+        animation: zoomIn 0.3s ease;
+      }
+
+      .lightbox-content img {
+        width: 100%;
+        height: auto;
+        max-height: 85vh;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      .lightbox-caption {
+        position: absolute;
+        bottom: -40px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 8px 20px;
+        border-radius: 30px;
+        display: inline-block;
+        width: auto;
+        margin: 0 auto;
+      }
+
+      .close-lightbox {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: rgba(0, 0, 0, 0.5);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+      }
+
+      .close-lightbox:hover {
+        transform: rotate(90deg);
+        background: #e30613;
+      }
+
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        pointer-events: none;
+      }
+
+      .lightbox-prev,
+      .lightbox-next {
+        pointer-events: auto;
+        background: rgba(0, 0, 0, 0.5);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        color: white;
+        font-size: 24px;
+      }
+
+      .lightbox-prev:hover,
+      .lightbox-next:hover {
+        background: #e30613;
+        transform: scale(1.1);
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* Make artist images clickable */
+      .artists-single-item {
+        cursor: pointer;
+      }
+
+      .artists-single-item img {
+        transition: transform 0.3s ease;
+      }
+
+      .artists-single-item:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .close-lightbox {
+          top: 15px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+          font-size: 30px;
+        }
+        .lightbox-prev,
+        .lightbox-next {
+          width: 40px;
+          height: 40px;
+          font-size: 18px;
+        }
+        .lightbox-caption {
+          font-size: 12px;
+          bottom: -30px;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Start Preloader -->
     <div id="preloader">
       <div class="preloader">
         <div class="waviy">
-          <span>S</span>
-          <span>O</span>
-          <span>J</span>
-          <span>I</span>
-          <span>B</span>
-          <span>D</span>
-          <span>A</span>
-          <span>S</span>
+          <span>S</span><span>O</span><span>J</span><span>I</span><span>B</span
+          ><span>D</span><span>A</span><span>S</span>
         </div>
       </div>
     </div>
@@ -122,9 +209,7 @@ head>
       <div
         class="container mw-1720 d-flex align-items-center justify-content-between"
       >
-        <!-- LEFT SIDE: Logo + Toggler -->
         <div class="d-flex align-items-center gap-3">
-          <!-- Logo -->
           <a class="navbar-brand" href="index.html">
             <img
               src="assets/images/final-logo.png"
@@ -132,8 +217,6 @@ head>
               alt="logo"
             />
           </a>
-
-          <!-- Toggler -->
           <a
             class="navbar-toggler"
             data-bs-toggle="offcanvas"
@@ -148,15 +231,13 @@ head>
             </span>
           </a>
         </div>
-
-        <!-- RIGHT SIDE: Menu -->
         <div
           class="collapse navbar-collapse justify-content-end"
           id="navbarSupportedContent"
         >
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="works.html">Works</a>
@@ -181,6 +262,7 @@ head>
       </div>
     </nav>
     <!-- End Navbar Area -->
+
     <!-- Start Mobile Navbar Area -->
     <div
       class="mobile-navbar offcanvas offcanvas-end border-0"
@@ -190,14 +272,13 @@ head>
     >
       <div class="offcanvas-header">
         <div class="">
-          <a href="index.html" class="logo d-inline-block">
-            <img src="assets/images/final-logo.png" alt="logo" />
-          </a>
-          <a href="index.html" class="logo d-none">
-            <img src="assets/images/final-logo.png" alt="logo" />
-          </a>
+          <a href="index.html" class="logo d-inline-block"
+            ><img src="assets/images/final-logo.png" alt="logo"
+          /></a>
+          <a href="index.html" class="logo d-none"
+            ><img src="assets/images/final-logo.png" alt="logo"
+          /></a>
         </div>
-
         <button
           type="button"
           class="btn-close opacity-1"
@@ -207,73 +288,39 @@ head>
           <i class="ri-close-fill"></i>
         </button>
       </div>
-
       <div class="offcanvas-body">
         <ul class="mobile-menu">
           <li class="mobile-menu-list without-icon">
-            <a href="index.html" class="nav-link"> Home </a>
+            <a href="index.html" class="nav-link">Home</a>
           </li>
           <li class="mobile-menu-list without-icon">
-            <a href="works.html" class="nav-link"> Works </a>
+            <a href="works.html" class="nav-link">Works</a>
           </li>
           <li class="mobile-menu-list without-icon">
-            <a href="awards.html" class="nav-link"> Awards </a>
+            <a href="awards.html" class="nav-link">Awards</a>
           </li>
           <li class="mobile-menu-list without-icon">
-            <a href="about.html" class="nav-link"> About </a>
+            <a href="about.html" class="nav-link">About</a>
           </li>
           <li class="mobile-menu-list without-icon">
-            <a href="gallery.html" class="nav-link"> Gallery </a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
           </li>
           <li class="mobile-menu-list without-icon">
-            <a href="newsroom.html" class="nav-link"> Newsroom </a>
+            <a href="newsroom.html" class="nav-link">Newsroom</a>
           </li>
           <li class="mobile-menu-list without-icon">
-            <a href="contact.html" class="nav-link"> Contact </a>
+            <a href="contact.html" class="nav-link">Contact</a>
           </li>
         </ul>
       </div>
     </div>
     <!-- End Mobile Navbar Area -->
 
-    <!-- Start Search Area -->
-    <div
-      class="offcanvas offcanvas-top search-form"
-      tabindex="-1"
-      id="offcanvasTop"
-      aria-labelledby="offcanvasTopLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasTopLabel">Sojib.</h5>
-        <button
-          type="button"
-          class="btn-close opacity-1 fs-24"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        >
-          <i class="ri-close-line text-white"></i>
-        </button>
-      </div>
-      <div class="offcanvas-body">
-        <form class="position-relative search-form-wrap">
-          <input
-            type="text"
-            class="form-control px-0"
-            placeholder="Type your words to seach"
-          />
-          <button class="bg-transparent p-0 border-0">
-            <i class="ri-search-line fs-24"></i>
-          </button>
-        </form>
-      </div>
-    </div>
-    <!-- End Search Area -->
-
     <!-- Start Page Banner Area -->
     <div class="page-banner-area position-relative z-1">
       <div class="container">
         <div class="page-banner-content">
-          <h2>ARTISTS</h2>
+          <h2>ARTISTS GALLERY</h2>
           <img
             src="assets/images/page-banner-shape.png"
             class="page-banner-shape shape"
@@ -287,220 +334,153 @@ head>
     <!-- Start Artists Area -->
     <div class="artists-area position-relative z-1 pb-120">
       <div class="container">
-        <ul
-          class="p-0 list-unstyled d-flex flex-wrap gap-1 justify-content-center justify-content-xxl-between artists-list"
-        >
-          <li>
-            <a href="artist.html">A</a>
-          </li>
-          <li>
-            <a href="artist.html">B</a>
-          </li>
-          <li>
-            <a href="artist.html">C</a>
-          </li>
-          <li>
-            <a href="artist.html">D</a>
-          </li>
-          <li>
-            <a href="artist.html">E</a>
-          </li>
-          <li>
-            <a href="artist.html">F</a>
-          </li>
-          <li>
-            <a href="artist.html">G</a>
-          </li>
-          <li>
-            <a href="artist.html">H</a>
-          </li>
-          <li>
-            <a href="artist.html">I</a>
-          </li>
-          <li>
-            <a href="artist.html">J</a>
-          </li>
-          <li>
-            <a href="artist.html">K</a>
-          </li>
-          <li>
-            <a href="artist.html">L</a>
-          </li>
-          <li>
-            <a href="artist.html">M</a>
-          </li>
-          <li>
-            <a href="artist.html">N</a>
-          </li>
-          <li>
-            <a href="artist.html">O</a>
-          </li>
-          <li>
-            <a href="artist.html">P</a>
-          </li>
-          <li>
-            <a href="artist.html">Q</a>
-          </li>
-          <li>
-            <a href="artist.html">R</a>
-          </li>
-          <li>
-            <a href="artist.html">S</a>
-          </li>
-          <li>
-            <a href="artist.html">T</a>
-          </li>
-          <li>
-            <a href="artist.html">U</a>
-          </li>
-          <li>
-            <a href="artist.html">V</a>
-          </li>
-          <li>
-            <a href="artist.html">W</a>
-          </li>
-          <li>
-            <a href="artist.html">X</a>
-          </li>
-          <li>
-            <a href="artist.html">Y</a>
-          </li>
-          <li>
-            <a href="artist.html">Z</a>
-          </li>
-        </ul>
         <div class="row">
+          <!-- Artist 1 -->
           <div class="col-lg-4 col-md-6">
-            <a
-              href="artist-details.html"
+            <div
               class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/0.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
             >
-              <img src="assets/images/artists-6.jpg" alt="artists" />
-              <div class="artists-content">
-                <h3>Amelia Bennett</h3>
-                <span>Pop Singer</span>
-              </div>
-            </a>
+              <img src="assets/images/profile/0.jpg" alt="Amelia Bennett" />
+            </div>
+          </div>
+          <!-- Artist 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/1.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
+            >
+              <img src="assets/images/profile/1.jpg" alt="Jackson Harrison" />
+            </div>
+          </div>
+          <!-- Artist 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/2.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
+            >
+              <img src="assets/images/profile/2.jpg" alt="Olivia Anderson" />
+            </div>
+          </div>
+          <!-- Artist 4 -->
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/3.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
+            >
+              <img src="assets/images/profile/3.jpg" alt="Liam Martinez" />
+            </div>
+          </div>
+          <!-- Artist 5 -->
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/4.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
+            >
+              <img src="assets/images/profile/4.jpg" alt="Sophia Parker" />
+            </div>
+          </div>
+          <!-- Artist 6 -->
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/14.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
+            >
+              <img src="assets/images/profile/14.jpg" alt="Ethan Collins" />
+            </div>
+          </div>
+          <!-- Artist 7 -->
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/5.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
+            >
+              <img src="assets/images/profile/5.jpg" alt="Mia Mitchell" />
+            </div>
+          </div>
+          <!-- Artist 8 -->
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/6.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
+            >
+              <img src="assets/images/profile/6.jpg" alt="William Carter" />
+            </div>
+          </div>
+          <!-- Artist 9 -->
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/8.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
+            >
+              <img src="assets/images/profile/8.jpg" alt="Thomas Watson" />
+            </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <a
-              href="artist-details.html"
+            <div
               class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/11.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
             >
-              <img src="assets/images/artists-7.jpg" alt="artists" />
-              <div class="artists-content">
-                <h3>Jackson Harrison</h3>
-                <span>Pop Singer</span>
-              </div>
-            </a>
+              <img src="assets/images/profile/11.jpg" alt="Thomas Watson" />
+            </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <a
-              href="artist-details.html"
+            <div
               class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/7.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
             >
-              <img src="assets/images/artists-8.jpg" alt="artists" />
-              <div class="artists-content">
-                <h3>Olivia Anderson</h3>
-                <span>Pop Singer</span>
-              </div>
-            </a>
+              <img src="assets/images/profile/7.jpg" alt="Thomas Watson" />
+            </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <a
-              href="artist-details.html"
+            <div
               class="artists-single-item d-block text-decoration-none style-two"
+              data-img="assets/images/profile/10.jpg"
+              data-name="Sajib Das"
+              data-role="Singer, Musician & Songwriter"
             >
-              <img src="assets/images/artists-9.jpg" alt="artists" />
-              <div class="artists-content">
-                <h3>Liam Martinez</h3>
-                <span>Pop Singer</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <a
-              href="artist-details.html"
-              class="artists-single-item d-block text-decoration-none style-two"
-            >
-              <img src="assets/images/artists-10.jpg" alt="artists" />
-              <div class="artists-content">
-                <h3>Sophia Parker</h3>
-                <span>Pop Singer</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <a
-              href="artist-details.html"
-              class="artists-single-item d-block text-decoration-none style-two"
-            >
-              <img src="assets/images/artists-11.jpg" alt="artists" />
-              <div class="artists-content">
-                <h3>Ethan Collins</h3>
-                <span>Pop Singer</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <a
-              href="artist-details.html"
-              class="artists-single-item d-block text-decoration-none style-two"
-            >
-              <img src="assets/images/artists-12.jpg" alt="artists" />
-              <div class="artists-content">
-                <h3>Mia Mitchell</h3>
-                <span>Pop Singer</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <a
-              href="artist-details.html"
-              class="artists-single-item d-block text-decoration-none style-two"
-            >
-              <img src="assets/images/artists-13.jpg" alt="artists" />
-              <div class="artists-content">
-                <h3>William Carter</h3>
-                <span>Pop Singer</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <a
-              href="artist-details.html"
-              class="artists-single-item d-block text-decoration-none style-two"
-            >
-              <img src="assets/images/artists-14.jpg" alt="artists" />
-              <div class="artists-content">
-                <h3>Thomas Watson</h3>
-                <span>Pop Singer</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-12">
-            <div class="col-lg-12">
-              <ul
-                class="p-0 m-0 list-unstyled pagination d-flex align-items-center justify-content-center"
-              >
-                <li>
-                  <a href="artist.html">
-                    <i class="ri-arrow-left-s-line"></i>
-                  </a>
-                </li>
-                <li><span>1/14</span></li>
-                <li>
-                  <a href="artist.html" class="active">
-                    <i class="ri-arrow-right-s-line"></i>
-                  </a>
-                </li>
-              </ul>
+              <img src="assets/images/profile/10.jpg" alt="Thomas Watson" />
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- End Artists Area -->
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+      <div class="close-lightbox">&times;</div>
+      <div class="lightbox-nav">
+        <div class="lightbox-prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="lightbox-next"><i class="fas fa-chevron-right"></i></div>
+      </div>
+      <div class="lightbox-content">
+        <img id="lightboxImage" src="" alt="Lightbox Image" />
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+      </div>
+    </div>
 
     <!-- Start Partner Area -->
     <div
@@ -509,32 +489,10 @@ head>
     >
       <div class="container">
         <div class="partner-title text-center mb-4 pb-lg-2">
-          <h4 class="fs-16">
-            <span class="text-secondary">Trusted Partner:</span> Clandestine
-            Sonic Explorations
+          <h4 class="">
+            <span class="text-secondary">Experience the Sound</span> Connect
+            with me on social media
           </h4>
-        </div>
-        <div class="row justify-content-center align-items-center">
-          <div class="col-md-3 col-sm-6">
-            <div class="mb-4 text-center text-md-start">
-              <img src="assets/images/partner-1.png" alt="partner" />
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="mb-4 text-center text-md-center">
-              <img src="assets/images/partner-2.png" alt="partner" />
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="mb-4 text-center text-md-center">
-              <img src="assets/images/partner-3.png" alt="partner" />
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="mb-4 text-center text-md-end">
-              <img src="assets/images/partner-4.png" alt="partner" />
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -571,49 +529,29 @@ head>
                 style="gap: 15px"
               >
                 <li>
-                  <a
-                    href="https://www.facebook.com/"
-                    class="text-decoration-none text-white"
-                    target="_blank"
-                  >
-                    <i class="ri-facebook-fill fs-18"></i>
-                  </a>
+                  <a href="#" class="text-decoration-none text-white"
+                    ><i class="ri-facebook-fill fs-18"></i
+                  ></a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.twitter.com/"
-                    class="text-decoration-none text-white"
-                    target="_blank"
-                  >
-                    <i class="ri-twitter-x-line fs-18"></i>
-                  </a>
+                  <a href="#" class="text-decoration-none text-white"
+                    ><i class="ri-twitter-x-line fs-18"></i
+                  ></a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.instagram.com/"
-                    class="text-decoration-none text-white"
-                    target="_blank"
-                  >
-                    <i class="ri-instagram-line fs-18"></i>
-                  </a>
+                  <a href="#" class="text-decoration-none text-white"
+                    ><i class="ri-instagram-line fs-18"></i
+                  ></a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.youtube.com/"
-                    class="text-decoration-none text-white"
-                    target="_blank"
-                  >
-                    <i class="ri-youtube-line fs-18"></i>
-                  </a>
+                  <a href="#" class="text-decoration-none text-white"
+                    ><i class="ri-youtube-line fs-18"></i
+                  ></a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.linkedin.com/"
-                    class="text-decoration-none text-white"
-                    target="_blank"
-                  >
-                    <i class="ri-linkedin-fill fs-18"></i>
-                  </a>
+                  <a href="#" class="text-decoration-none text-white"
+                    ><i class="ri-linkedin-fill fs-18"></i
+                  ></a>
                 </li>
               </ul>
             </div>
@@ -623,78 +561,46 @@ head>
               <div class="col-sm-4">
                 <div class="footer-widget">
                   <h3>Company</h3>
-
                   <ul class="p-0 mb-0 list-unstyled info-links">
-                    <li>
-                      <a href="about.html">About Us</a>
-                    </li>
-                    <li>
-                      <a href="contact.html">Contact Us</a>
-                    </li>
-                    <li>
-                      <a href="playlist.html">Playlist</a>
-                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="playlist.html">Playlist</a></li>
                     <li>
                       <a href="terms-conditions.html">Terms & Conditions</a>
                     </li>
-                    <li>
-                      <a href="privacy-policy.html">Privacy Policy</a>
-                    </li>
-                    <li>
-                      <a href="blog.html">Recent News</a>
-                    </li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="blog.html">Recent News</a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="footer-widget">
                   <h3>Genres</h3>
-
                   <ul class="p-0 mb-0 list-unstyled info-links">
-                    <li>
-                      <a href="genres.html">Pop</a>
-                    </li>
-                    <li>
-                      <a href="genres.html">Melody</a>
-                    </li>
-                    <li>
-                      <a href="genres.html">Hip-Hop</a>
-                    </li>
-                    <li>
-                      <a href="genres.html">Classic</a>
-                    </li>
-                    <li>
-                      <a href="genres.html">jazz</a>
-                    </li>
-                    <li>
-                      <a href="genres.html">Classic</a>
-                    </li>
+                    <li><a href="genres.html">Pop</a></li>
+                    <li><a href="genres.html">Melody</a></li>
+                    <li><a href="genres.html">Hip-Hop</a></li>
+                    <li><a href="genres.html">Classic</a></li>
+                    <li><a href="genres.html">Jazz</a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="footer-widget">
                   <h3>Contact Info</h3>
-
                   <ul class="p-0 mb-0 list-unstyled info-links">
                     <li>
-                      <span class="text-white">Address:</span> 45/15 New alsala
-                      Avenew Booston town, Austria
+                      <span class="text-white">Address:</span> Dhaka, Bangladesh
                     </li>
                     <li>
                       <span class="text-white">Email:</span>
-                      <a
-                        href="/cdn-cgi/l/email-protection"
-                        class="__cf_email__"
-                        data-cfemail="4c3f393c3c233e380c2d3f383e2d20622f2321"
-                        >[email&#160;protected]</a
+                      <a href="mailto:support@sojibdas.com"
+                        >support@sojibdas.com</a
                       >
                     </li>
                     <li>
-                      <span class="text-white">Phone:</span> +(002)
-                      0106-8710-594
+                      <span class="text-white">Phone:</span> +8801766977297
                     </li>
-                    <li><span class="text-white">Fax:</span> +0106-8710-594</li>
                   </ul>
                 </div>
               </div>
@@ -718,62 +624,118 @@ head>
     <!-- End Copyright Area -->
 
     <!-- Start Back To Up Area -->
-    <button type="button" id="backtotop">
-      <i class="ri-upload-line"></i>
-    </button>
+    <button type="button" id="backtotop"><i class="ri-upload-line"></i></button>
     <!-- End Back To Up Area -->
 
-    <!-- Start switch Area -->
-    <div class="settings-btn rtl-btn">
-      <label id="switch" class="switch">
-        <input type="checkbox" onchange="toggleTheme()" id="slider" />
-        <span class="slider round"></span>
-      </label>
-    </div>
-    <!-- End switch Area -->
-
-    <!-- Link Of JS File -->
-    <script
-      data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-    ></script>
+    <!-- Scripts -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/scrollCue.min.js"></script>
     <script src="assets/js/custom.js"></script>
+
+    <!-- Lightbox JavaScript -->
     <script>
       (function () {
-        function c() {
-          var b = a.contentDocument || a.contentWindow.document;
-          if (b) {
-            var d = b.createElement("script");
-            d.innerHTML =
-              "window.__CF$cv$params={r:'9f65c285bdfd7219',t:'MTc3Nzg3OTQwNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-            b.getElementsByTagName("head")[0].appendChild(d);
+        // Get all artist items
+        const artistItems = document.querySelectorAll(".artists-single-item");
+        const modal = document.getElementById("lightboxModal");
+        const lightboxImage = document.getElementById("lightboxImage");
+        const lightboxCaption = document.getElementById("lightboxCaption");
+        const closeBtn = document.querySelector(".close-lightbox");
+        const prevBtn = document.querySelector(".lightbox-prev");
+        const nextBtn = document.querySelector(".lightbox-next");
+
+        let currentIndex = 0;
+        let imagesArray = [];
+
+        // Build images array from artist items
+        artistItems.forEach((item, index) => {
+          const imgSrc = item.getAttribute("data-img");
+          const imgName = item.getAttribute("data-name");
+          const imgRole = item.getAttribute("data-role");
+
+          if (imgSrc) {
+            imagesArray.push({
+              src: imgSrc,
+              name: imgName,
+              role: imgRole,
+            });
+          }
+
+          // Add click event to each artist item
+          item.addEventListener("click", function (e) {
+            e.preventDefault();
+            const src = this.getAttribute("data-img");
+            const name = this.getAttribute("data-name");
+            const role = this.getAttribute("data-role");
+
+            if (src) {
+              currentIndex = index;
+              openLightbox(src, name, role);
+            }
+          });
+        });
+
+        // Open lightbox function
+        function openLightbox(src, name, role) {
+          lightboxImage.src = src;
+          lightboxCaption.textContent = `${name} - ${role}`;
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+
+        // Update lightbox image
+        function updateLightbox() {
+          const item = imagesArray[currentIndex];
+          if (item) {
+            lightboxImage.src = item.src;
+            lightboxCaption.textContent = `${item.name} - ${item.role}`;
           }
         }
-        if (document.body) {
-          var a = document.createElement("iframe");
-          a.height = 1;
-          a.width = 1;
-          a.style.position = "absolute";
-          a.style.top = 0;
-          a.style.left = 0;
-          a.style.border = "none";
-          a.style.visibility = "hidden";
-          document.body.appendChild(a);
-          if ("loading" !== document.readyState) c();
-          else if (window.addEventListener)
-            document.addEventListener("DOMContentLoaded", c);
-          else {
-            var e = document.onreadystatechange || function () {};
-            document.onreadystatechange = function (b) {
-              e(b);
-              "loading" !== document.readyState &&
-                ((document.onreadystatechange = e), c());
-            };
-          }
+
+        // Next image
+        function nextImage() {
+          currentIndex = (currentIndex + 1) % imagesArray.length;
+          updateLightbox();
         }
+
+        // Previous image
+        function prevImage() {
+          currentIndex =
+            (currentIndex - 1 + imagesArray.length) % imagesArray.length;
+          updateLightbox();
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+          modal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+        // Event listeners
+        if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+        if (prevBtn) prevBtn.addEventListener("click", prevImage);
+        if (nextBtn) nextBtn.addEventListener("click", nextImage);
+
+        // Close on modal background click
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            closeLightbox();
+          }
+        });
+
+        // Keyboard navigation
+        document.addEventListener("keydown", function (e) {
+          if (!modal.classList.contains("active")) return;
+
+          if (e.key === "Escape") {
+            closeLightbox();
+          } else if (e.key === "ArrowRight") {
+            nextImage();
+          } else if (e.key === "ArrowLeft") {
+            prevImage();
+          }
+        });
       })();
     </script>
   </body>
