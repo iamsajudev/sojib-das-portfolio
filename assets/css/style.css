@@ -5624,10 +5624,10 @@ fieldset:disabled .btn {
 
 /* Navbar */
 .navbar {
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(10px);
+  /* background: rgba(10, 10, 10, 0.95); */
+  /* backdrop-filter: blur(10px); */
   padding: 15px 0;
-  border-bottom: 1px solid #222;
+  /* border-bottom: 1px solid #222; */
 }
 
 .navbar-brand img {
@@ -17438,6 +17438,12 @@ Page-navigation Area Style
   transition: all ease 0.5s;
   position: relative;
   margin-bottom: 120px;
+  gap: 10;
+}
+.style-two img {
+  width: 100%;
+ height: 550px;
+ object-fit: cover;
 }
 .artists-single-item .artists-content {
   margin-top: 30px;
