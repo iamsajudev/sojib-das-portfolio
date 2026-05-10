@@ -15796,12 +15796,31 @@ Page-navigation Area Style
 }
 /* Max width 1200px */
 @media only screen and (max-width: 1399px) {
+  .footer-area {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .social-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar-brand{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 1399px) {
   .navbar-brand {
     position: unset !important;
     transform: unset !important;
     padding: 0;
     margin-top: -5px;
-    margin-right: 50px;
+    margin-right: 150px;
   }
 }
 /* Min width 768px to Max width 991px */
@@ -17442,8 +17461,8 @@ Page-navigation Area Style
 }
 .style-two img {
   width: 100%;
- height: 550px;
- object-fit: cover;
+  height: 550px;
+  object-fit: cover;
 }
 .artists-single-item .artists-content {
   margin-top: 30px;
